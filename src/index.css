@@ -35,6 +35,11 @@ header ul.nav li {
     display: inline;
     margin-left: 25px;
     cursor: pointer;
+    transition: opacity 500ms ease;
+}
+
+header ul.nav li:hover {
+    opacity: 0.5;
 }
 
 header .presentation {
