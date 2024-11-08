@@ -5,6 +5,10 @@ export default function Header() {
     <header>
         <div>
             <span className='logo'>SafeBite</span>
+            <ul className='nav'>
+                <li>Notifications</li>
+                <li>Profile</li>
+            </ul>
         </div>
         <div className='presentation'></div>
     </header>
