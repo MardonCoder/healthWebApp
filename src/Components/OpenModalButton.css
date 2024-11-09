@@ -1,0 +1,23 @@
+
+.mealPlanButton{
+    display: inline-block;
+    color: #6A6F4C;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+
+.mealPlanButton:hover{
+    background: white;
+}
+
+.mealPlanButton:active{
+    background: #000000;
+}
