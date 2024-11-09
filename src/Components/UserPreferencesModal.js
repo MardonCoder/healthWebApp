@@ -1,7 +1,7 @@
 // UserPreferencesModal.js
 import React, { useState } from 'react';
 import './UserPreferencesModal.css';
-import { foodList } from './foodList';  // Импорт списка продуктов
+import { foodList } from './foodList';
 
 function UserPreferencesModal({ closeModal }) {
   const [selectedDiseases, setSelectedDiseases] = useState([]);
@@ -62,6 +62,8 @@ function UserPreferencesModal({ closeModal }) {
       );
     });
 
+    const foodCount = {}; // Track food repetitions
+
     const mealPlan = Array.from({ length: 7 }, () => ({
       breakfast: selectMeal(filteredFoodList, 'breakfast', caloriesPerMeal.breakfast),
       snack1: selectMeal(filteredFoodList, 'snack', caloriesPerMeal.snack),
@@ -71,14 +73,20 @@ function UserPreferencesModal({ closeModal }) {
     }));
 
     setWeeklyMealPlan(mealPlan);
-  };
 
-  const selectMeal = (foodArray, period, targetCalories) => {
-    const mealsForPeriod = foodArray
-      .filter((food) => food.period === period)
-      .sort((a, b) => Math.abs(a.calories - targetCalories) - Math.abs(b.calories - targetCalories));
+    function selectMeal(foodArray, period, targetCalories) {
+      const mealsForPeriod = foodArray
+        .filter((food) => food.period === period && (foodCount[food.name] || 0) < 3)
+        .sort((a, b) => Math.abs(a.calories - targetCalories) - Math.abs(b.calories - targetCalories));
 
-    return mealsForPeriod.length > 0 ? mealsForPeriod[0] : null;
+      if (mealsForPeriod.length > 0) {
+        const selectedFood = mealsForPeriod[0];
+        foodCount[selectedFood.name] = (foodCount[selectedFood.name] || 0) + 1;
+        return selectedFood;
+      }
+
+      return null;
+    }
   };
 
   const handleSubmit = () => {
@@ -110,7 +118,8 @@ function UserPreferencesModal({ closeModal }) {
           <label>
             <input type="checkbox" value="hypertension" onChange={handleDiseaseChange} /> Hypertension
           </label>
-          <label><input type="checkbox" value="gastro" onChange={handleDiseaseChange} /> Gastrointestinal Diseases
+          <label>
+            <input type="checkbox" value="gastro" onChange={handleDiseaseChange} /> Gastrointestinal Diseases
           </label>
           <label>
             <input type="checkbox" value="intolerance" onChange={handleDiseaseChange} /> Food Intolerance
