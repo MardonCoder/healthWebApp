@@ -3,7 +3,6 @@
 * {
     margin: 0;
     padding: 0;
-
 }
 
 body {
@@ -13,6 +12,7 @@ body {
     font-weight: 300;
 }
 
+/* Основные стили для десктопной версии */
 .wrapper {
     width: 1080px;
     margin: 50px auto;
@@ -24,11 +24,9 @@ header .logo {
     margin: 10px;
 }
 
-
 header ul.nav {
     float: right;
     list-style: none;
-
 }
 
 header ul.nav li {
@@ -60,28 +58,81 @@ header .presentation::after {
     content: 'Your Health Journey Starts Here!';
     position: absolute;
     top: 100px;
-    righ: 30px;
+    right: 30px;
     width: 300px;
     font-size: 40px;
     font-weight: 600;
     color: #fff;
 }
 
-/*
-header .presentation::before {
-    content: 'Wholesome Meals, Vibrant Lives';
-    position: absolute;
-    top: 250px;
-    left: 30px;
-    width: 300px;
-    font-size: 15px;
-    font-weight: 300;
-    color: #fff;
-}
-    */
-
 footer {
     text-align: center;
     margin-top: 100px;
+}
+
+/* Медиазапрос для планшетов и мобильных устройств */
+@media (max-width: 768px) {
+    /* Центрирование содержимого */
+    .wrapper {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    /* Логотип: уменьшение размера */
+    header .logo {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    /* Навигация: вертикальное расположение */
+    header ul.nav {
+        float: none;
+        text-align: center;
+        padding: 0;
+    }
+
+    header ul.nav li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Уменьшение высоты презентации */
+    header .presentation {
+        height: 300px;
+    }
+
+    /* Уменьшение размера текста и центрирование */
+    header .presentation::after {
+        font-size: 24px;
+        width: 80%;
+        top: 50px;
+        right: 10px;
+        text-align: center;
+    }
+}
+
+/* Медиазапрос для маленьких экранов (мобильных устройств) */
+@media (max-width: 480px) {
+    /* Полный доступный размер */
+    .wrapper {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Логотип: еще меньше */
+    header .logo {
+        font-size: 20px;
+    }
+
+    /* Презентация: еще меньше высота и уменьшенный шрифт */
+    header .presentation {
+        height: 200px;
+    }
+
+    header .presentation::after {
+        font-size: 18px;
+        top: 30px;
+        width: 90%;
+    }
 }
 
