@@ -191,8 +191,8 @@ function UserPreferencesModal({ closeModal }) {
           {errors.goal && <span className="error">{errors.goal}</span>}
         </div>
 
-        <button onClick={handleSubmit}>Generate Meal Plan</button>
-        <button onClick={closeModal}>Close</button>
+        <button className='generateNcloseButton' onClick={handleSubmit}>Generate Meal Plan</button>
+        <button className='generateNcloseButton' onClick={closeModal}>Close</button>
 
         {weeklyMealPlan && (
           <div className="meal-plan">

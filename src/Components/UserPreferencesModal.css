@@ -1,4 +1,5 @@
 .modal {
+    background: #f7f1e3;
     position: fixed;
     top: 0;
     left: 0;
@@ -46,4 +47,30 @@
   .meal-plan p {
     margin-left: 10px;
   }
+
+  .generateNcloseButton{
+    display: inline-block;
+    color: #6A6F4C;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+    cursor: pointer;
+    margin: 10px;
+}
+
+
+.generateNcloseButton:hover{
+    background: white;
+}
+
+.generateNcloseButton:active{
+    background: #000000;
+}
+
+
   
