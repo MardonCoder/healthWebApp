@@ -24,3 +24,23 @@
     display: block;
     margin-bottom: 10px;
   }
+
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* UserPreferencesModal.css */
+.meal-plan {
+    margin-top: 20px;
+  }
+  .meal-plan h3, .meal-plan h4 {
+    margin-bottom: 5px;
+  }
+  .meal-plan p {
+    margin-left: 10px;
+  }
+  
